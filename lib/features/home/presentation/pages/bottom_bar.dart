@@ -15,23 +15,7 @@ import 'package:parents/core/theme/font_size.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:textfield_tags/textfield_tags.dart';
-import 'core/theme/colors.dart';
 // import 'package:syncfusion_flutter_calendar/calendar.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
 
 class MyHomePage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();

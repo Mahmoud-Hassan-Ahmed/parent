@@ -15,23 +15,6 @@ import 'package:parents/core/theme/font_size.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:textfield_tags/textfield_tags.dart';
-import 'core/theme/colors.dart';
-// import 'package:syncfusion_flutter_calendar/calendar.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
 
 class MyHomePage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -171,103 +154,7 @@ class MyHomePage extends StatelessWidget {
                         ],
                       )
                     ],
-                  )),
-                  Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Column(
-                          children: [
-                            Icon(
-                              Icons.menu,
-                              color: AppColors.hint,
-                            ),
-                            Text(
-                              'المزيد',
-                              style: TextStyle(
-                                  fontSize: AppFontSize.smallText,
-                                  color: AppColors.hint,
-                                  fontFamily: 'Cairo'),
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(
-                              Icons.menu,
-                              color: AppColors.hint,
-                            ),
-                            Text(
-                              'المزيد',
-                              style: TextStyle(
-                                  fontSize: AppFontSize.smallText,
-                                  color: AppColors.hint,
-                                  fontFamily: 'Cairo'),
-                            )
-                          ],
-                        ),
-                        Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                            color: AppColors.orange,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.menu,
-                                color: AppColors.hint,
-                              ),
-                              Text(
-                                'المزيد',
-                                style: TextStyle(
-                                    fontSize: AppFontSize.smallText,
-                                    color: AppColors.hint,
-                                    fontFamily: 'Cairo'),
-                              )
-                            ],
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Icon(
-                              Icons.menu,
-                              color: AppColors.hint,
-                            ),
-                            Text(
-                              'المزيد',
-                              style: TextStyle(
-                                  fontSize: AppFontSize.smallText,
-                                  color: AppColors.hint,
-                                  fontFamily: 'Cairo'),
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(
-                              Icons.menu,
-                              color: AppColors.hint,
-                            ),
-                            Text(
-                              'المزيد',
-                              style: TextStyle(
-                                  fontSize: AppFontSize.smallText,
-                                  color: AppColors.hint,
-                                  fontFamily: 'Cairo'),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
+                  ))
                 ],
               ))
         ],
