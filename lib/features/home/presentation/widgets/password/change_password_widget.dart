@@ -12,64 +12,68 @@ class ChangePasswordListWidget extends StatelessWidget {
     final TextEditingController emailController = TextEditingController();
     return ListView(
       children: [
-        Image.asset('assets/images/password.png'),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  'كلمة المرور الحالية',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                      fontFamily: 'Cairo',
-                      fontSize: AppFontSize.smallText + 1,
-                      color: AppColors.smallText),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Image.asset(
+            'assets/images/password.png',
+            height: MediaQuery.of(context).size.height / 3,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                'كلمة المرور الحالية',
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: AppFontSize.smallText + 1,
+                    color: AppColors.smallText),
+              ),
+              TextFormField(
+                controller: usernameController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                 ),
-                TextFormField(
-                  controller: usernameController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'كلمة المرور الجديدة',
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: AppFontSize.smallText + 1,
+                    color: AppColors.smallText),
+              ),
+              TextFormField(
+                controller: fullNameController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                 ),
-                const SizedBox(
-                  height: 10,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'تأكيد كلمة المرور الجديدة',
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: AppFontSize.smallText + 1,
+                    color: AppColors.smallText),
+              ),
+              TextFormField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                 ),
-                Text(
-                  'كلمة المرور الجديدة',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                      fontFamily: 'Cairo',
-                      fontSize: AppFontSize.smallText + 1,
-                      color: AppColors.smallText),
-                ),
-                TextFormField(
-                  controller: fullNameController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'تأكيد كلمة المرور الجديدة',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                      fontFamily: 'Cairo',
-                      fontSize: AppFontSize.smallText + 1,
-                      color: AppColors.smallText),
-                ),
-                TextFormField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],

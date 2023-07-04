@@ -87,15 +87,15 @@ class CardSonsWidget extends StatelessWidget {
                         )
                       ],
                     )),
-                const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Expanded(
-                      flex: 1,
+                const Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
                       child: CircleAvatar(
                         radius: 30,
                         backgroundImage: AssetImage('assets/images/parent.png'),
-                      )),
-                ),
+                      ),
+                    )),
               ],
             )),
       ),

@@ -1,10 +1,12 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 import 'package:parents/core/widgets/buttons/full_width_btn.dart';
 import 'package:parents/features/home/presentation/bloc/login/login_bloc.dart';
+import 'package:parents/features/home/presentation/pages/home_page.dart';
 
 class FormLogIn extends StatelessWidget {
   const FormLogIn({super.key});
@@ -118,7 +120,9 @@ class FormLogIn extends StatelessWidget {
                       const SizedBox(height: 24.0),
                       FullWidthBtn(
                         label: 'الدخول',
-                        callBack: () {},
+                        callBack: () {
+                          AppUtils.pushTo(context, const HomePage());
+                        },
                       ),
                     ],
                   ),

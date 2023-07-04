@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
+import 'package:parents/features/home/presentation/pages/chat_page.dart';
 
 class MessagesWidget extends StatelessWidget {
   const MessagesWidget({super.key});
@@ -38,7 +40,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -72,7 +74,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -106,7 +108,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -140,7 +142,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -174,7 +176,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -208,7 +210,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -242,7 +244,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -276,7 +278,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',
@@ -310,7 +312,7 @@ class MessagesWidget extends StatelessWidget {
                 color: Colors.grey),
           ),
           onTap: () {
-            // Add functionality for when the list tile is tapped
+            AppUtils.pushTo(context, const ChatPage());
           },
           trailing: Text(
             'مايو ٢٠٢٢',

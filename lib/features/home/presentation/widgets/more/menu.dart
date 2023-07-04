@@ -2,8 +2,10 @@ import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:parents/core/dialog/choose_lang.dart';
 import 'package:parents/core/dialog/notifications.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
+import 'package:parents/features/home/presentation/pages/help.dart';
 
 class MenuWidget extends StatelessWidget {
   const MenuWidget({super.key});
@@ -118,30 +120,35 @@ class MenuWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            children: [
-              const Icon(
-                Icons.arrow_back_ios,
-                size: 15,
-                color: AppColors.hint,
-              ),
-              Expanded(
-                  child: Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Text(
-                  'الدعم الفني',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                      fontFamily: 'Cairo',
-                      fontSize: AppFontSize.hintFormField + 1,
-                      color: AppColors.smallText),
+          child: GestureDetector(
+            onTap: () {
+              AppUtils.pushTo(context, const HelpCahtPage());
+            },
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.arrow_back_ios,
+                  size: 15,
+                  color: AppColors.hint,
                 ),
-              )),
-              const Icon(
-                FontAwesomeIcons.whatsapp,
-                color: Colors.green,
-              ),
-            ],
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Text(
+                    'الدعم الفني',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                        fontFamily: 'Cairo',
+                        fontSize: AppFontSize.hintFormField + 1,
+                        color: AppColors.smallText),
+                  ),
+                )),
+                const Icon(
+                  FontAwesomeIcons.whatsapp,
+                  color: Colors.green,
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(

@@ -3,8 +3,10 @@ import 'dart:math';
 import 'package:fdottedline_nullsafety/fdottedline__nullsafety.dart';
 import 'package:flutter/material.dart';
 import 'package:parents/core/dialog/exit_dailog.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
+import 'package:parents/features/home/presentation/pages/view_profile.dart';
 
 class AppBarMore extends SliverPersistentHeaderDelegate {
   final BuildContext context;
@@ -80,22 +82,29 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                     children: [
                       Expanded(
                         flex: 1,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'اسم ولي الأمر',
-                              style: TextStyle(
-                                  fontSize: AppFontSize.hintFormField,
-                                  fontFamily: 'Cairo',
-                                  color: AppColors.smallText,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Image.asset('assets/images/user2.png'),
-                          ],
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'اسم ولي الأمر',
+                                style: TextStyle(
+                                    fontSize: AppFontSize.hintFormField,
+                                    fontFamily: 'Cairo',
+                                    color: AppColors.smallText,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Image.asset(
+                                'assets/images/user.png',
+                                height: 50,
+                                width: 50,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const Divider(
@@ -143,21 +152,29 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                               ),
                               Expanded(
                                   flex: 1,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Icon(Icons.person),
-                                      Text(
-                                        'الملف الشخصي',
-                                        style: TextStyle(
-                                            fontSize: AppFontSize.hintFormField,
-                                            color: AppColors.smallText,
-                                            fontFamily: 'Cairo',
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    ],
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      AppUtils.pushTo(
+                                          context, const ViewProfilePage());
+                                    },
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(Icons.person),
+                                        Text(
+                                          'الملف الشخصي',
+                                          style: TextStyle(
+                                              fontSize:
+                                                  AppFontSize.hintFormField,
+                                              color: AppColors.smallText,
+                                              fontFamily: 'Cairo',
+                                              fontWeight: FontWeight.bold),
+                                        )
+                                      ],
+                                    ),
                                   )),
                             ],
                           ))

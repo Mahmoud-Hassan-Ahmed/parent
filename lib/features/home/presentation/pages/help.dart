@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/dialog/delete.dart';
 import 'package:parents/core/widgets/appbar/with_title.dart';
 import 'package:parents/core/widgets/bottom_bar/send_message.dart';
 import 'package:parents/features/home/presentation/widgets/chat/chat.dart';
@@ -24,7 +25,17 @@ class _HelpCahtPageState extends State<HelpCahtPage> {
             delegate: AppBarWithTitle(
                 context: context,
                 title: 'التحدث مع الدعم الفني',
-                callBack: () {}),
+                callBack: () {
+                  deleteDialog(
+                          context,
+                          'انهاء المحادثة',
+                          'هل انت متأكد انك تريد إنهاء المحادثة ؟',
+                          'نعم',
+                          'لا', () {
+                    Navigator.pop(context);
+                  }, () {})
+                      .show();
+                }),
           ),
           const SliverFillRemaining(hasScrollBody: true, child: ChatWidget())
         ],

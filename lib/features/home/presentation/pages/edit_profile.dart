@@ -28,7 +28,11 @@ class _EditProfileState extends State<EditProfile> {
               pinned: true,
               floating: false,
               delegate: AppBarWithTitle(
-                  context: context, title: 'الملف الشخصي', callBack: () {})),
+                  context: context,
+                  title: 'الملف الشخصي',
+                  callBack: () {
+                    Navigator.pop(context);
+                  })),
           const SliverFillRemaining(
               hasScrollBody: true,
               child: FormProfileWidget(

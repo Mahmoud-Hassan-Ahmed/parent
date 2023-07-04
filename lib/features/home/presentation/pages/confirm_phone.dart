@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:parents/core/widgets/appbar/with_title.dart';
 import 'package:parents/features/home/presentation/widgets/password/enter_code.dart';
 
-class ConfirmPhoneWidget extends StatefulWidget {
-  const ConfirmPhoneWidget({super.key});
+class ConfirmPhonePage extends StatefulWidget {
+  const ConfirmPhonePage({super.key});
 
   @override
-  State<ConfirmPhoneWidget> createState() => _ConfirmPhoneWidgetState();
+  State<ConfirmPhonePage> createState() => _ConfirmPhonePageState();
 }
 
-class _ConfirmPhoneWidgetState extends State<ConfirmPhoneWidget> {
+class _ConfirmPhonePageState extends State<ConfirmPhonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,9 @@ class _ConfirmPhoneWidgetState extends State<ConfirmPhoneWidget> {
               delegate: AppBarWithTitle(
                   context: context,
                   title: 'تفعيل كلمة المرور',
-                  callBack: () {})),
+                  callBack: () {
+                    Navigator.pop(context);
+                  })),
           const SliverFillRemaining(
               hasScrollBody: true, child: CodeListWidget()),
         ],

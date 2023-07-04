@@ -39,7 +39,6 @@ dependencies:
   #for splash 
   flutter_native_splash: ^2.3.1
   #for carousal
-  flutter_carousel_slider: ^1.1.0
   carousel_slider: ^4.2.1
   #for tabs
   bubble_tab_indicator: ^0.1.6

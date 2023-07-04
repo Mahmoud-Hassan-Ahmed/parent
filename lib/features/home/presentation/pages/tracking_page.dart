@@ -20,7 +20,11 @@ class _TrackingPageState extends State<TrackingPage> {
               pinned: true,
               floating: false,
               delegate: AppBarWithTitle(
-                  callBack: () {}, title: 'التتبع', context: context)),
+                  callBack: () {
+                    Navigator.pop(context);
+                  },
+                  title: 'التتبع',
+                  context: context)),
           const SliverFillRemaining(
               hasScrollBody: true, child: BodyTrackingWidget())
         ],

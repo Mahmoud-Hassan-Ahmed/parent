@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/dialog/delete.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -25,7 +26,18 @@ class CardAttendenceWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.delete)),
+                        onPressed: () {
+                          deleteDialog(
+                                  context,
+                                  'حذف طلب الغياب',
+                                  'هل انت متأكد انك تريد حذف الطلب',
+                                  'نعم',
+                                  'لا',
+                                  () {},
+                                  () {})
+                              .show();
+                        },
+                        icon: const Icon(Icons.delete)),
                     const Text(''),
                     ElevatedButton(
                         onPressed: () {},

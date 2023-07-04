@@ -28,7 +28,9 @@ class _MessagesPageState extends State<MessagesPage> {
                 context: context,
                 title: 'الرسائل',
                 bg: 'assets/images/bg_message_bar.png',
-                callBack: () {}),
+                callBack: () {
+                  Navigator.pop(context);
+                }),
           ),
           const SliverFillRemaining(
             hasScrollBody: true,

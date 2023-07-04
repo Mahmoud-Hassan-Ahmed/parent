@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:parents/core/widgets/appbar/with_carousal.dart';
-import 'package:parents/core/widgets/bottom_bar/bottom_bar.dart';
 import 'package:parents/features/home/presentation/widgets/home/cards_home.dart';
 import 'package:parents/features/home/presentation/widgets/home/carousal_bar.dart';
+
+import '../../../../core/widgets/bottom_bar/bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

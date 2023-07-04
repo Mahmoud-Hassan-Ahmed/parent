@@ -19,11 +19,15 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
               pinned: true,
               floating: false,
               delegate: AppBarWithTitle(
-                  context: context, title: 'الملف الشخصي', callBack: () {})),
+                  context: context,
+                  title: 'الملف الشخصي',
+                  callBack: () {
+                    Navigator.pop(context);
+                  })),
           const SliverFillRemaining(
               hasScrollBody: true,
               child: FormProfileWidget(
-                enable: true,
+                enable: false,
               ))
         ],
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/widgets/appbar/with_title.dart';
 import 'package:parents/core/widgets/bottom_bar/bottom_bar.dart';
+import 'package:parents/features/home/presentation/pages/sons_page.dart';
 import 'package:parents/features/home/presentation/widgets/sons_trips/card_sons.dart';
 
 class SonsTripsPage extends StatefulWidget {
@@ -25,36 +27,54 @@ class _SonsTripsPageState extends State<SonsTripsPage> {
               pinned: true,
               floating: false,
               delegate: AppBarWithTitle(
-                  context: context, title: 'رحلات الأبناء', callBack: () {})),
+                  context: context,
+                  title: 'رحلات الأبناء',
+                  callBack: () {
+                    Navigator.pop(context);
+                  })),
           SliverFillRemaining(
             hasScrollBody: true,
             child: ListView(
-              children: const [
-                CardSonsWidget(),
-                SizedBox(
+              children: [
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
+                const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(),
-                SizedBox(
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
+                const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(),
-                SizedBox(
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
+                const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(),
-                SizedBox(
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
+                const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(),
-                SizedBox(
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
+                const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(),
-                SizedBox(
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
+                const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(),
+                CardSonsWidget(callBack: () {
+                  AppUtils.pushTo(context, const SonsPage());
+                }),
               ],
             ),
           )

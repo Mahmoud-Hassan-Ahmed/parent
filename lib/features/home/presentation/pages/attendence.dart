@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/widgets/appbar/appbar_attendence.dart';
+import 'package:parents/features/home/presentation/pages/calendar.dart';
 import 'package:parents/features/home/presentation/widgets/attendence/card_attendence.dart';
 
 class AttendencePage extends StatefulWidget {
@@ -29,7 +31,12 @@ class _AttendencePageState extends State<AttendencePage> {
                   height: 10,
                 ),
                 const CardAttendenceWidget(),
-                Expanded(child: Image.asset('assets/images/add.png'))
+                Expanded(
+                    child: GestureDetector(
+                        onTap: () {
+                          AppUtils.pushTo(context, const CalendarPage());
+                        },
+                        child: Image.asset('assets/images/add.png')))
               ],
             ),
           )

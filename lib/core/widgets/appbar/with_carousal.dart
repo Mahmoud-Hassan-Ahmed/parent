@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/font_size.dart';
+import 'package:parents/features/home/presentation/pages/notifcation_page.dart';
 
 class WithCarousalBar extends SliverPersistentHeaderDelegate {
   final BuildContext context;
@@ -39,7 +41,9 @@ class WithCarousalBar extends SliverPersistentHeaderDelegate {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    AppUtils.pushTo(context, const NotificationPage());
+                  },
                   icon: const Icon(
                     Icons.notification_important,
                     color: Colors.white,
@@ -71,7 +75,7 @@ class WithCarousalBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
               Image.asset(
-                'assets/images/user.png',
+                'assets/images/user2.png',
                 height: 50,
                 width: 50,
               ),

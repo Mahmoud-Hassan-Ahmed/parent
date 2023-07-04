@@ -35,7 +35,7 @@ class AppBarAttendence extends SliverPersistentHeaderDelegate {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'شات مع المشرف',
+              'طلبات الغياب',
               style: TextStyle(
                   fontSize: AppFontSize.smallText * 2,
                   color: Colors.white,

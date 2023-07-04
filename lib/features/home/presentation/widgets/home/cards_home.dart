@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
+import 'package:parents/features/home/presentation/pages/attendence.dart';
 
 class CardsHomeWidgets extends StatelessWidget {
   const CardsHomeWidgets({super.key});
@@ -122,6 +124,8 @@ class CardsHomeWidgets extends StatelessWidget {
                   Expanded(
                       flex: 2,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'طلب غياب',
@@ -143,7 +147,10 @@ class CardsHomeWidgets extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                AppUtils.pushTo(
+                                    context, const AttendencePage());
+                              },
                               style: ElevatedButton.styleFrom(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 20),

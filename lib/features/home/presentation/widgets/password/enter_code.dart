@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parents/core/dialog/done.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 import 'package:parents/core/widgets/buttons/full_width_btn.dart';
@@ -15,8 +16,7 @@ class CodeListWidget extends StatelessWidget {
           'assets/images/code.png',
           height: MediaQuery.of(context).size.height / 4,
         ),
-        Expanded(
-            child: Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Padding(
@@ -65,7 +65,13 @@ class CodeListWidget extends StatelessWidget {
             ),
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: FullWidthBtn(label: 'تفعيل', callBack: () {})),
+                child: FullWidthBtn(
+                    label: 'تفعيل',
+                    callBack: () {
+                      dilaogDone(context, 'تم تغير كلمة المرور بنجاح',
+                              'الرجوع للصفحة الرئيسية', () {})
+                          .show();
+                    })),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -108,7 +114,7 @@ class CodeListWidget extends StatelessWidget {
               ],
             )
           ],
-        ))
+        )
       ],
     );
   }

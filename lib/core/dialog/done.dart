@@ -5,46 +5,49 @@ import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 import 'package:parents/core/widgets/buttons/full_width_btn.dart';
 
-dilaogDone(BuildContext context) => AwesomeDialog(
-    context: context,
-    animType: AnimType.scale,
-    dialogType: DialogType.noHeader,
-    showCloseIcon: true,
-    body: Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 20,
+dilaogDone(BuildContext context, String title, String label, Function f) =>
+    AwesomeDialog(
+        context: context,
+        animType: AnimType.scale,
+        dialogType: DialogType.noHeader,
+        showCloseIcon: true,
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              SvgPicture.asset(
+                'assets/icons/done.svg',
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                title, //
+                style: TextStyle(
+                  fontFamily: 'Cairo',
+                  fontSize: AppFontSize.smallText + 2,
+                  color: AppColors.orange,
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: FullWidthBtn(
+                  label: label, //
+                  callBack: () {
+                    f.call();
+                  },
+                  bg: AppColors.smallTextColor,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              )
+            ],
           ),
-          SvgPicture.asset(
-            'assets/icons/done.svg',
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            'تم أسأل الطلب بنجاح',
-            style: TextStyle(
-              fontFamily: 'Cairo',
-              fontSize: AppFontSize.smallText + 2,
-              color: AppColors.orange,
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: FullWidthBtn(
-              label: 'الرجوع لطلبات الغياب',
-              callBack: () {},
-              bg: AppColors.smallTextColor,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          )
-        ],
-      ),
-    ));
+        ));

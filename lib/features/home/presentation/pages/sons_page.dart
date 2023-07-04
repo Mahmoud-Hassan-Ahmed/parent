@@ -21,7 +21,11 @@ class _SonsPageState extends State<SonsPage> {
               pinned: true,
               floating: false,
               delegate: AppBarWithTitle(
-                  context: context, title: 'رحلات الأبناء', callBack: () {})),
+                  context: context,
+                  title: 'رحلات الأبناء',
+                  callBack: () {
+                    Navigator.pop(context);
+                  })),
           SliverFillRemaining(
             hasScrollBody: true,
             child: ListView(

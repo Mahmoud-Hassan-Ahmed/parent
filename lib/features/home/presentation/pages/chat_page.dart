@@ -22,7 +22,11 @@ class _ChatPageState extends State<ChatPage> {
             pinned: true,
             floating: false,
             delegate: AppBarWithTitle(
-                context: context, title: 'شات مع المشرف', callBack: () {}),
+                context: context,
+                title: 'شات مع المشرف',
+                callBack: () {
+                  Navigator.pop(context);
+                }),
           ),
           const SliverFillRemaining(hasScrollBody: true, child: ChatWidget())
         ],

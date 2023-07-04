@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
-import 'package:parents/core/dialog/delete.dart';
 import 'package:textfield_tags/textfield_tags.dart';
 
 class CalendarBodyWidget extends StatelessWidget {
@@ -69,9 +68,7 @@ class CalendarBodyWidget extends StatelessWidget {
                   elevation: 4,
                   backgroundColor: AppColors.smallTextColor,
                 ),
-                onPressed: () {
-                  deleteDialog(context).show();
-                },
+                onPressed: () {},
                 child: Text(
                   'ذهاب وعودة',
                   style: TextStyle(

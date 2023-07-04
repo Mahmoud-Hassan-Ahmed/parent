@@ -20,7 +20,11 @@ class _NotificationPageState extends State<NotificationPage> {
               pinned: true,
               floating: false,
               delegate: AppBarWithTitle(
-                  callBack: () {}, context: context, title: 'الاشعارات')),
+                  callBack: () {
+                    Navigator.pop(context);
+                  },
+                  context: context,
+                  title: 'الاشعارات')),
           const SliverFillRemaining(
             hasScrollBody: true,
             child: Column(
