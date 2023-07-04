@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:fdottedline_nullsafety/fdottedline__nullsafety.dart';
 import 'package:flutter/material.dart';
+import 'package:parents/core/dialog/exit_dailog.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -111,21 +112,28 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                             children: [
                               Expanded(
                                   flex: 1,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Icon(Icons.exit_to_app),
-                                      Text(
-                                        ' تسجيل خروج',
-                                        style: TextStyle(
-                                            fontSize: AppFontSize.hintFormField,
-                                            color: AppColors.smallText,
-                                            fontFamily: 'Cairo',
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    ],
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      exitDialog(context).show();
+                                    },
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(Icons.exit_to_app),
+                                        Text(
+                                          ' تسجيل خروج',
+                                          style: TextStyle(
+                                              fontSize:
+                                                  AppFontSize.hintFormField,
+                                              color: AppColors.smallText,
+                                              fontFamily: 'Cairo',
+                                              fontWeight: FontWeight.bold),
+                                        )
+                                      ],
+                                    ),
                                   )),
                               FDottedLine(
                                 color: Colors.black,

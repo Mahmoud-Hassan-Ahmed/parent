@@ -5,9 +5,14 @@ import 'package:parents/core/theme/font_size.dart';
 class FullWidthBtn extends StatelessWidget {
   final String label;
   final Color? bg;
+  final Color? textColor;
   final Function callBack;
   const FullWidthBtn(
-      {super.key, required this.label, required this.callBack, this.bg});
+      {super.key,
+      required this.label,
+      required this.callBack,
+      this.bg,
+      this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class FullWidthBtn extends StatelessWidget {
                 fontSize: AppFontSize.hintFormField,
                 fontFamily: 'Cairo',
                 fontWeight: FontWeight.bold,
-                color: Colors.white),
+                color: textColor ?? Colors.white),
           )),
     );
   }
