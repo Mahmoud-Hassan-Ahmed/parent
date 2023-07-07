@@ -61,7 +61,7 @@ class ChatWidget extends StatelessWidget {
               ),
               const SizedBox(width: 10.0),
               const CircleAvatar(
-                backgroundImage: AssetImage('assets/images/user.png'),
+                backgroundImage: AssetImage('assets/images/user_send.png'),
                 radius: 20.0,
               ),
             ],
@@ -104,7 +104,7 @@ class ChatWidget extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -125,7 +125,7 @@ class ChatWidget extends StatelessWidget {
               ),
               const SizedBox(width: 10.0),
               const CircleAvatar(
-                backgroundImage: AssetImage('assets/images/user.png'),
+                backgroundImage: AssetImage('assets/images/user_send.png'),
                 radius: 20.0,
               ),
             ],

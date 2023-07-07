@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
+import 'package:parents/features/home/presentation/bloc/attendence/attendence_bloc.dart';
 
 class AppBarAttendence extends SliverPersistentHeaderDelegate {
   late double minTopBarHeight = MediaQuery.of(context).size.height / 4;
@@ -34,39 +35,67 @@ class AppBarAttendence extends SliverPersistentHeaderDelegate {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'طلبات الغياب',
-              style: TextStyle(
-                  fontSize: AppFontSize.smallText * 2,
-                  color: Colors.white,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                const IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppColors.smallTextColor,
+                    )),
+                Expanded(
+                  child: Text(
+                    'طلبات الغياب',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: AppFontSize.smallText * 2,
+                        color: Colors.white,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                    )),
+              ],
             ),
-            DefaultTabController(
-              length: 2,
-              child: TabBar(
-                indicatorPadding: const EdgeInsets.only(left: 50),
-                indicatorSize: TabBarIndicatorSize.label,
-                labelColor: Colors.white,
-                indicatorColor: Colors.white,
-                tabs: [
-                  Tab(
-                      child: Text(
-                    'الطلبات السابقة',
-                    style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontSize: AppFontSize.hintFormField,
-                        fontWeight: FontWeight.bold),
-                  )),
-                  Tab(
-                      child: Text(
-                    ' الطلبات الحالية ',
-                    style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontSize: AppFontSize.hintFormField,
-                        fontWeight: FontWeight.bold),
-                  )),
-                ],
+            Directionality(
+              textDirection: TextDirection.rtl,
+              child: DefaultTabController(
+                length: 2,
+                child: TabBar(
+                  onTap: (value) {
+                    AttendenceBloc.get(context)
+                        .add(ChooseAttendenceEvent(value));
+                  },
+                  indicatorPadding: const EdgeInsets.only(left: 50),
+                  indicatorSize: TabBarIndicatorSize.label,
+                  labelColor: Colors.white,
+                  indicatorColor: Colors.white,
+                  tabs: [
+                    Tab(
+                        child: Text(
+                      ' الطلبات الحالية ',
+                      style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontSize: AppFontSize.hintFormField,
+                          fontWeight: FontWeight.bold),
+                    )),
+                    Tab(
+                        child: Text(
+                      'الطلبات السابقة',
+                      style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontSize: AppFontSize.hintFormField,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ],
+                ),
               ),
             )
           ],

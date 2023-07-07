@@ -39,6 +39,9 @@ class _LoginPageState extends State<LoginPage> {
                   NoteTextWidget(
                     text:
                         'ملاحظة : يرجى التواصل مع المدرسة/ المركز للحصول علي بيانات الدخول لأول مرة',
+                  ),
+                  SizedBox(
+                    height: 28,
                   )
                 ],
               ),

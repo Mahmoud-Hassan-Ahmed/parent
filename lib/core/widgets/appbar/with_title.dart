@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
@@ -24,16 +22,13 @@ class AppBarWithTitle extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    var shrinkFactor = min(1, shrinkOffset / (maxExtent - minExtent));
-
     var topBar = Positioned(
       top: 0,
       left: 0,
       right: 0,
       child: Container(
         alignment: Alignment.center,
-        height:
-            max(maxTopBarHeight * (1 - shrinkFactor * 1.45), minTopBarHeight),
+        height: MediaQuery.of(context).size.height / 6,
         decoration: BoxDecoration(
             color: AppColors.smallTextColor,
             image: bg != null
@@ -76,12 +71,11 @@ class AppBarWithTitle extends SliverPersistentHeaderDelegate {
       ),
     );
     return SizedBox(
-      height: max(maxExtent - shrinkOffset, minExtent),
+      height: MediaQuery.of(context).size.height / 6,
       child: Stack(
         fit: StackFit.loose,
         children: [
-          if (shrinkFactor <= 0.5) topBar,
-          if (shrinkFactor > 0.5) topBar,
+          topBar,
         ],
       ),
     );
@@ -91,7 +85,7 @@ class AppBarWithTitle extends SliverPersistentHeaderDelegate {
   double get maxExtent => MediaQuery.of(context).size.height / 6;
 
   @override
-  double get minExtent => MediaQuery.of(context).size.height / 9;
+  double get minExtent => MediaQuery.of(context).size.height / 6;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;

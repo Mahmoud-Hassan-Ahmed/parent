@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -26,14 +27,19 @@ chooseLangDialog(BuildContext context) => AwesomeDialog(
             ),
             CheckboxListTile(
               tileColor: Colors.white,
-              value: !false,
-              onChanged: (value) {},
+              value: true,
+              onChanged: (value) {
+                AppUtils.indexLangDialog = 1;
+                Navigator.pop(context);
+              },
               controlAffinity: ListTileControlAffinity.leading,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0),
               ),
-              checkColor: Colors.white,
               activeColor: Colors.white,
+              checkColor: AppUtils.indexLangDialog == 1
+                  ? AppColors.orange
+                  : Colors.white,
               title: Text(
                 'English',
                 style: TextStyle(
@@ -50,13 +56,18 @@ chooseLangDialog(BuildContext context) => AwesomeDialog(
             ),
             CheckboxListTile(
               value: true,
-              onChanged: (value) {},
+              onChanged: (value) {
+                AppUtils.indexLangDialog = 2;
+                Navigator.pop(context);
+              },
               controlAffinity: ListTileControlAffinity.leading,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0),
               ),
               activeColor: Colors.white,
-              checkColor: AppColors.orange,
+              checkColor: AppUtils.indexLangDialog == 2
+                  ? AppColors.orange
+                  : Colors.white,
               title: Text(
                 'العربية',
                 style: TextStyle(

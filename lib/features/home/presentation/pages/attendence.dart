@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/widgets/appbar/appbar_attendence.dart';
+import 'package:parents/features/home/presentation/bloc/attendence/attendence_bloc.dart';
 import 'package:parents/features/home/presentation/pages/calendar.dart';
 import 'package:parents/features/home/presentation/widgets/attendence/card_attendence.dart';
 
@@ -14,33 +16,56 @@ class AttendencePage extends StatefulWidget {
 class _AttendencePageState extends State<AttendencePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
-          SliverPersistentHeader(
-              // pinned: true,
-              // floating: false,
-              delegate: AppBarAttendence(
-                  context: context, widget: const CardAttendenceWidget())),
-          SliverFillRemaining(
-            hasScrollBody: true,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                const CardAttendenceWidget(),
-                Expanded(
-                    child: GestureDetector(
-                        onTap: () {
-                          AppUtils.pushTo(context, const CalendarPage());
-                        },
-                        child: Image.asset('assets/images/add.png')))
+    int index = 0;
+    return BlocProvider(
+      create: (context) => AttendenceBloc(),
+      child: BlocBuilder<AttendenceBloc, AttendenceState>(
+        builder: (context, state) {
+          if (state is ChooseAttendenceState) {
+            index = state.index;
+          }
+          return Scaffold(
+            backgroundColor: Colors.white,
+            body: CustomScrollView(
+              slivers: [
+                SliverPersistentHeader(
+                    pinned: true,
+                    floating: false,
+                    delegate: AppBarAttendence(
+                        context: context,
+                        widget: CardAttendenceWidget(
+                          index: index,
+                        ))),
+                SliverFillRemaining(
+                  hasScrollBody: true,
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CardAttendenceWidget(
+                        index: index,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            AppUtils.pushTo(context, const CalendarPage());
+                          },
+                          child: Image.asset(
+                            'assets/images/add.png',
+                            width: 200,
+                            height: 200,
+                          ))
+                    ],
+                  ),
+                )
               ],
             ),
-          )
-        ],
+          );
+        },
       ),
     );
   }

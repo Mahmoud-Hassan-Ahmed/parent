@@ -15,7 +15,10 @@ class _HelpCahtPageState extends State<HelpCahtPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomSendMessage(),
+      bottomNavigationBar: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: const BottomSendMessage(),
+      ),
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
@@ -27,14 +30,16 @@ class _HelpCahtPageState extends State<HelpCahtPage> {
                 title: 'التحدث مع الدعم الفني',
                 callBack: () {
                   deleteDialog(
-                          context,
-                          'انهاء المحادثة',
-                          'هل انت متأكد انك تريد إنهاء المحادثة ؟',
-                          'نعم',
-                          'لا', () {
+                      context,
+                      'انهاء المحادثة',
+                      'هل انت متأكد انك تريد إنهاء المحادثة ؟',
+                      'نعم',
+                      'لا', () {
                     Navigator.pop(context);
-                  }, () {})
-                      .show();
+                    Navigator.pop(context);
+                  }, () {
+                    Navigator.pop(context);
+                  }).show();
                 }),
           ),
           const SliverFillRemaining(hasScrollBody: true, child: ChatWidget())

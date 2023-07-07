@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:fdottedline_nullsafety/fdottedline__nullsafety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/dialog/exit_dailog.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
@@ -26,7 +27,10 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
       child: Container(
         height: MediaQuery.of(context).size.height / 3,
         decoration: const BoxDecoration(
-            color: AppColors.smallTextColor,
+            image: DecorationImage(
+              image: AssetImage('assets/images/bg_home_bar.png'),
+              fit: BoxFit.cover,
+            ),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(36),
               bottomRight: Radius.circular(36),
@@ -45,11 +49,12 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                     fontSize: AppFontSize.titleFont - 4),
               ),
             ),
-            Align(
-              alignment: Alignment.centerRight,
+            Positioned(
+              top: 75,
+              right: 10,
               child: IconButton(
                   onPressed: () {
-                    callBack.call();
+                    Navigator.pop(context);
                   },
                   icon: const Icon(
                     Icons.arrow_forward_ios,
@@ -67,10 +72,10 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
         children: [
           topBar,
           Positioned(
-              top: (MediaQuery.of(context).size.height / 4) / 1.5,
+              top: (MediaQuery.of(context).size.height / 4) / 1.7,
               left: (MediaQuery.of(context).size.width / 3) / 4,
               width: (MediaQuery.of(context).size.width / 3) * 2.5,
-              height: MediaQuery.of(context).size.height / 3,
+              height: (MediaQuery.of(context).size.height / 4),
               child: Card(
                 elevation: 10,
                 shape: RoundedRectangleBorder(
@@ -90,16 +95,16 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                               Text(
                                 'اسم ولي الأمر',
                                 style: TextStyle(
-                                    fontSize: AppFontSize.hintFormField,
-                                    fontFamily: 'Cairo',
-                                    color: AppColors.smallText,
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: AppFontSize.hintFormField,
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.smallText,
+                                ),
                               ),
                               const SizedBox(
                                 width: 20,
                               ),
                               Image.asset(
-                                'assets/images/user.png',
+                                'assets/images/user2.png',
                                 height: 50,
                                 width: 50,
                               ),
@@ -107,14 +112,17 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                           ),
                         ),
                       ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       const Divider(
-                        thickness: 1,
+                        thickness: .5,
                         indent: 10,
                         color: AppColors.smallText,
                         endIndent: 10,
                       ),
                       Expanded(
-                          flex: 1,
+                          flex: 2,
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -131,15 +139,15 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Icon(Icons.exit_to_app),
+                                        SvgPicture.asset(
+                                            'assets/icons/exit.svg'),
                                         Text(
                                           ' تسجيل خروج',
                                           style: TextStyle(
-                                              fontSize:
-                                                  AppFontSize.hintFormField,
-                                              color: AppColors.smallText,
-                                              fontFamily: 'Cairo',
-                                              fontWeight: FontWeight.bold),
+                                            fontSize: AppFontSize.hintFormField,
+                                            color: AppColors.smallText,
+                                            fontFamily: 'Cairo',
+                                          ),
                                         )
                                       ],
                                     ),
@@ -147,7 +155,7 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                               FDottedLine(
                                 color: Colors.black,
                                 height: 50.0,
-                                strokeWidth: 1.0,
+                                strokeWidth: 0.5,
                                 space: 0,
                               ),
                               Expanded(
@@ -163,15 +171,15 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Icon(Icons.person),
+                                        SvgPicture.asset(
+                                            'assets/icons/profile.svg'),
                                         Text(
                                           'الملف الشخصي',
                                           style: TextStyle(
-                                              fontSize:
-                                                  AppFontSize.hintFormField,
-                                              color: AppColors.smallText,
-                                              fontFamily: 'Cairo',
-                                              fontWeight: FontWeight.bold),
+                                            fontSize: AppFontSize.hintFormField,
+                                            color: AppColors.smallText,
+                                            fontFamily: 'Cairo',
+                                          ),
                                         )
                                       ],
                                     ),
@@ -189,13 +197,13 @@ class AppBarMore extends SliverPersistentHeaderDelegate {
 
   @override
   double get maxExtent =>
-      (MediaQuery.of(context).size.height / 3) +
-      ((MediaQuery.of(context).size.height / 3) / 2);
+      (MediaQuery.of(context).size.height / 4) +
+      ((MediaQuery.of(context).size.height / 5.8));
 
   @override
   double get minExtent =>
-      (MediaQuery.of(context).size.height / 3) +
-      ((MediaQuery.of(context).size.height / 3) / 2);
+      (MediaQuery.of(context).size.height / 4) +
+      ((MediaQuery.of(context).size.height / 5.8));
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;

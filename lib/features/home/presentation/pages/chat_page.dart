@@ -14,7 +14,11 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomSendMessage(),
+      resizeToAvoidBottomInset: true,
+      bottomNavigationBar: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: const BottomSendMessage(),
+      ),
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [

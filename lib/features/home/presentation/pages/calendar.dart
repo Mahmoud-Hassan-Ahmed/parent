@@ -26,9 +26,11 @@ class _CalendarPageState extends State<CalendarPage> {
           child: FullWidthBtn(
               label: 'إرسال الطلب',
               callBack: () {
-                dilaogDone(context, 'تم أسأل الطلب بنجاح',
-                        'الرجوع لطلبات الغياب', () {})
-                    .show();
+                dilaogDone(
+                    context, 'تم أسأل الطلب بنجاح', 'الرجوع لطلبات الغياب', () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }).show();
               }),
         ),
         body: CustomScrollView(

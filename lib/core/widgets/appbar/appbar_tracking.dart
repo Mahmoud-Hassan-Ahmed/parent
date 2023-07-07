@@ -67,7 +67,9 @@ class AppBarTraking extends SliverPersistentHeaderDelegate {
               child: IconButton(
                   icon:
                       const Icon(Icons.arrow_forward_ios, color: Colors.white),
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
             )
           ],
         ),

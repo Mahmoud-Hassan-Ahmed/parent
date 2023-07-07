@@ -10,7 +10,7 @@ class CalendarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CalendarFormat calendarFormat = CalendarFormat.twoWeeks;
+    CalendarFormat calendarFormat = CalendarFormat.week;
     RangeSelectionMode rangeSelectionMode = RangeSelectionMode.toggledOn;
     DateTime focusedDay = DateTime.now();
     DateTime? selectedDay;
@@ -35,6 +35,9 @@ class CalendarWidget extends StatelessWidget {
         }
         return Column(
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             Text(
               'حدد أيام الغياب علي التقويم',
               style: TextStyle(
@@ -44,10 +47,248 @@ class CalendarWidget extends StatelessWidget {
             ),
             const Expanded(child: Text('')),
             TableCalendar(
+              rowHeight: 150,
+              daysOfWeekVisible: false,
+              calendarStyle: const CalendarStyle(
+                rangeHighlightScale: 2.24,
+              ),
+              calendarBuilders: CalendarBuilders(
+                todayBuilder: (context, date, events) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(child: Text('')),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Text(
+                              '${date.day}',
+                              style: TextStyle(
+                                  color: AppColors.smallTextColor,
+                                  fontSize: AppFontSize.hintFormField,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              _getDayName(date),
+                              style: TextStyle(
+                                  fontSize: AppFontSize.smallText,
+                                  color: AppColors.smallTextColor),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.smallTextColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const Expanded(child: Text(''))
+                    ],
+                  );
+                },
+                rangeStartBuilder: (context, date, focusedDay) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(child: Text('')),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Text(
+                              '${date.day}',
+                              style: TextStyle(
+                                  color: AppColors.smallTextColor,
+                                  fontSize: AppFontSize.hintFormField,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              _getDayName(date),
+                              style: TextStyle(
+                                  fontSize: AppFontSize.smallText,
+                                  color: AppColors.smallTextColor),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.smallTextColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const Expanded(child: Text(''))
+                    ],
+                  );
+                },
+                rangeEndBuilder: (context, date, focusedDay) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(child: Text('')),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Text(
+                              '${date.day}',
+                              style: TextStyle(
+                                  color: AppColors.smallTextColor,
+                                  fontSize: AppFontSize.hintFormField,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              _getDayName(date),
+                              style: TextStyle(
+                                  fontSize: AppFontSize.smallText,
+                                  color: AppColors.smallTextColor),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.smallTextColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const Expanded(child: Text(''))
+                    ],
+                  );
+                },
+                defaultBuilder: (context, date, events) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(child: Text('')),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Text(
+                              '${date.day}',
+                              style: TextStyle(
+                                  color: AppColors.smallText,
+                                  fontSize: AppFontSize.hintFormField,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              _getDayName(date),
+                              style: TextStyle(
+                                  fontSize: AppFontSize.smallText,
+                                  color: AppColors.hint),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const Expanded(child: Text(''))
+                    ],
+                  );
+                },
+                withinRangeBuilder: (context, date, isWithinRange) => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Expanded(child: Text('')),
+                    Container(
+                      color: Colors.blue.shade100,
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Text(
+                            '${date.day}',
+                            style: TextStyle(
+                                color: AppColors.smallTextColor,
+                                fontSize: AppFontSize.hintFormField,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            _getDayName(date),
+                            style: TextStyle(
+                                fontSize: AppFontSize.smallText,
+                                color: AppColors.smallTextColor),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            width: 8,
+                            height: 8,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromRGBO(187, 222, 251, 1),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    const Expanded(child: Text(''))
+                  ],
+                ),
+              ),
+              // rowHeight: 100,
               headerVisible: false,
               firstDay: DateTime.utc(2010, 10, 16),
               lastDay: DateTime.utc(2030, 3, 14),
               focusedDay: focusedDay,
+
               selectedDayPredicate: (day) => isSameDay(selectedDay, day),
               rangeStartDay: rangeStart,
               rangeEndDay: rangeEnd,
@@ -63,13 +304,7 @@ class CalendarWidget extends StatelessWidget {
                 CalendarBloc.get(context).add(OnRangeSelectedEvent(
                     selectedDay: focusedDay, start: start, end: end));
               },
-              onFormatChanged: (format) {
-                // if (_calendarFormat != format) {
-                //   setState(() {
-                //     _calendarFormat = format;
-                //   });
-                // }
-              },
+              onFormatChanged: (format) {},
               onPageChanged: (focusedDay) {
                 CalendarBloc.get(context).add(OnPageChangedEvent(focusedDay));
               },
@@ -78,5 +313,18 @@ class CalendarWidget extends StatelessWidget {
         );
       },
     );
+  }
+
+  String _getDayName(DateTime date) {
+    final List<String> weekdays = [
+      'Mon',
+      'Tue',
+      'Wed',
+      'Thu',
+      'Fri',
+      'Sat',
+      'Sun'
+    ];
+    return weekdays[date.weekday - 1];
   }
 }

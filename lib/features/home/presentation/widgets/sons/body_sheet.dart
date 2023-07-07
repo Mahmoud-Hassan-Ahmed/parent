@@ -1,5 +1,5 @@
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -16,12 +16,14 @@ class BodySheetSons extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            const SizedBox(
+              height: 20,
+            ),
             Text(
               'تعديل بروفايل الطالب',
               style: TextStyle(
                   fontSize: AppFontSize.hintFormField + 2,
                   fontFamily: 'Cairo',
-                  fontWeight: FontWeight.bold,
                   color: AppColors.smallText),
             ),
             const SizedBox(
@@ -67,15 +69,15 @@ class BodySheetSons extends StatelessWidget {
                 Text(
                   'تغير صورة البروفايل',
                   style: TextStyle(
-                      fontFamily: 'Cairo',
-                      fontSize: AppFontSize.hintFormField,
-                      color: AppColors.smallText,
-                      fontWeight: FontWeight.bold),
+                    fontFamily: 'Cairo',
+                    fontSize: AppFontSize.hintFormField,
+                    color: AppColors.smallText,
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
                 ),
-                const Icon(FontAwesomeIcons.upload),
+                SvgPicture.asset('assets/icons/upload.svg')
               ],
             ),
             const SizedBox(
@@ -83,15 +85,19 @@ class BodySheetSons extends StatelessWidget {
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
-                        const EdgeInsets.symmetric(horizontal: 20),
+                        const EdgeInsets.symmetric(horizontal: 40),
                       ),
                       backgroundColor:
                           MaterialStateProperty.all<Color>(AppColors.orange),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      )),
                     ),
                     onPressed: () {},
                     child: Text(
@@ -105,13 +111,14 @@ class BodySheetSons extends StatelessWidget {
                   width: 30,
                 ),
                 TextButton.icon(
-                  icon: const Icon(FontAwesomeIcons.windowClose),
+                  icon: SvgPicture.asset('assets/icons/Fail.svg'),
                   label: Text(
                     'إلغاء',
                     style: TextStyle(
-                      fontSize: AppFontSize.hintText,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontFamily: 'Cairo',
+                        fontSize: AppFontSize.hintText,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.smallTextColor),
                   ),
                   onPressed: () {
                     // Handle button press

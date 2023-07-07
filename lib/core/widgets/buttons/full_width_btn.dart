@@ -6,7 +6,7 @@ class FullWidthBtn extends StatelessWidget {
   final String label;
   final Color? bg;
   final Color? textColor;
-  final Function callBack;
+  final Function? callBack;
   const FullWidthBtn(
       {super.key,
       required this.label,
@@ -21,19 +21,20 @@ class FullWidthBtn extends StatelessWidget {
       child: ElevatedButton(
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(
-              const EdgeInsets.all(8), // Set the desired padding here
+              const EdgeInsets.all(8),
             ),
             backgroundColor:
                 MaterialStateProperty.all<Color>(bg ?? AppColors.orange),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                  16), // Set the desired border radius here
+              borderRadius: BorderRadius.circular(12),
             )),
           ),
-          onPressed: () {
-            callBack.call();
-          },
+          onPressed: callBack != null
+              ? () {
+                  callBack!.call();
+                }
+              : null,
           child: Text(
             label,
             style: TextStyle(

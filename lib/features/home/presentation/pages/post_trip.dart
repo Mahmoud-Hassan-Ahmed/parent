@@ -27,11 +27,15 @@ class _PostTripPageState extends State<PostTripPage> {
                 pinned: true,
                 floating: false,
                 delegate: AppBarWithTitle(
-                    context: context, title: 'رحلات سابقة', callBack: () {})),
-            const SliverFillRemaining(
-              hasScrollBody: true,
-              child: Column(
-                children: [
+                    context: context,
+                    title: 'رحلات سابقة',
+                    callBack: () {
+                      Navigator.pop(context);
+                    })),
+            SliverFillRemaining(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: const [
                   SizedBox(
                     height: 15,
                   ),

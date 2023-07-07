@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/font_size.dart';
 import 'package:parents/features/home/presentation/pages/notifcation_page.dart';
@@ -37,48 +38,51 @@ class WithCarousalBar extends SliverPersistentHeaderDelegate {
             )),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          child: Stack(
+            // mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              IconButton(
-                  onPressed: () {
-                    AppUtils.pushTo(context, const NotificationPage());
-                  },
-                  icon: const Icon(
-                    Icons.notification_important,
-                    color: Colors.white,
-                  )),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'مساء الخير ',
-                        style: TextStyle(
-                            fontFamily: 'Cairo',
-                            color: Colors.white,
-                            fontSize: AppFontSize.hintText),
-                      ),
-                      Text(
-                        'اسم ولي الأمر',
-                        style: TextStyle(
-                            fontFamily: 'Cairo',
-                            color: Colors.white,
-                            fontSize: AppFontSize.hintFormField,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
+              Positioned(
+                top: 70,
+                child: IconButton(
+                    onPressed: () {
+                      AppUtils.pushTo(context, const NotificationPage());
+                    },
+                    icon: SvgPicture.asset('assets/icons/notification.svg')),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'مساء الخير ',
+                          style: TextStyle(
+                              fontFamily: 'Cairo',
+                              color: Colors.white,
+                              fontSize: AppFontSize.hintText),
+                        ),
+                        Text(
+                          'اسم ولي الأمر',
+                          style: TextStyle(
+                              fontFamily: 'Cairo',
+                              color: Colors.white,
+                              fontSize: AppFontSize.hintFormField,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              Image.asset(
-                'assets/images/user2.png',
-                height: 50,
-                width: 50,
-              ),
+                  Image.asset(
+                    'assets/images/user.png',
+                    height: 50,
+                    width: 50,
+                  ),
+                ],
+              )
             ],
           ),
         ),

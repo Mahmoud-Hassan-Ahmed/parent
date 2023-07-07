@@ -47,7 +47,7 @@ class AppBarCalendar extends SliverPersistentHeaderDelegate {
               alignment: Alignment.centerRight,
               child: IconButton(
                   onPressed: () {
-                    callBack.call();
+                    Navigator.pop(context);
                   },
                   icon: const Icon(
                     Icons.arrow_forward_ios,
@@ -66,13 +66,13 @@ class AppBarCalendar extends SliverPersistentHeaderDelegate {
           topBar,
           Positioned(
               top: (MediaQuery.of(context).size.height / 4) / 1.5,
-              left: (MediaQuery.of(context).size.width / 3) / 4,
-              width: (MediaQuery.of(context).size.width / 3) * 2.5,
+              left: 10,
+              width: MediaQuery.of(context).size.width - 20,
               height: MediaQuery.of(context).size.height / 3,
               child: Card(
                 elevation: 10,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: callendar,
               )),

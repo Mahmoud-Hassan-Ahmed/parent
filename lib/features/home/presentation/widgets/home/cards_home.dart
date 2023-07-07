@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
-import 'package:parents/features/home/presentation/pages/attendence.dart';
+
+import 'package:parents/features/home/presentation/pages/choose_sons.dart';
+import 'package:parents/features/home/presentation/pages/sons_page.dart';
+import 'package:parents/features/home/presentation/pages/tracking_sons_page.dart';
 
 class CardsHomeWidgets extends StatelessWidget {
   const CardsHomeWidgets({super.key});
@@ -71,7 +74,10 @@ class CardsHomeWidgets extends StatelessWidget {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 15),
                                     child: ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          AppUtils.pushTo(context,
+                                              const TrackingSonsPage());
+                                        },
                                         style: ElevatedButton.styleFrom(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 20),
@@ -149,7 +155,7 @@ class CardsHomeWidgets extends StatelessWidget {
                           ElevatedButton(
                               onPressed: () {
                                 AppUtils.pushTo(
-                                    context, const AttendencePage());
+                                    context, const ChooseSonsPage());
                               },
                               style: ElevatedButton.styleFrom(
                                 padding:
@@ -203,7 +209,11 @@ class CardsHomeWidgets extends StatelessWidget {
                           child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Image.asset('assets/images/kids.png'),
+                          GestureDetector(
+                              onTap: () {
+                                AppUtils.pushTo(context, const SonsPage());
+                              },
+                              child: Image.asset('assets/images/kids.png')),
                           Image.asset('assets/images/address.png'),
                           Image.asset('assets/images/driver.png'),
                         ],

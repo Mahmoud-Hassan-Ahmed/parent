@@ -8,14 +8,14 @@ class NotificationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(13),
       child: Card(
           elevation: 10,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -48,7 +48,10 @@ class NotificationWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                Image.asset('assets/images/notifications.png'),
+                Image.asset(
+                  'assets/images/notifications.png',
+                  height: 60,
+                ),
               ],
             ),
           )),

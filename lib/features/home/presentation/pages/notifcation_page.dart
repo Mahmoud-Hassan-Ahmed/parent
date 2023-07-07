@@ -25,10 +25,11 @@ class _NotificationPageState extends State<NotificationPage> {
                   },
                   context: context,
                   title: 'الاشعارات')),
-          const SliverFillRemaining(
+          SliverFillRemaining(
             hasScrollBody: true,
-            child: Column(
-              children: [
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: const [
                 NotificationWidget(),
                 NotificationWidget(),
                 NotificationWidget(),

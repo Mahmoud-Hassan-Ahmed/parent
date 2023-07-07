@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -18,29 +19,22 @@ class BottomSendMessage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50)),
             child: IconButton(
               onPressed: () {},
-              icon: Transform.rotate(
-                angle:
-                    230 * 3.1415926535 / 180, // Convert 270 degrees to radians
-                child: const Icon(
-                  Icons.send,
-                  color: Colors.white,
-                ),
-              ),
+              icon: SvgPicture.asset('assets/icons/sendmessage.svg'),
             ),
           ),
           const SizedBox(
-            width: 20,
+            width: 10,
           ),
           Expanded(
               child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(15.0),
             ),
             child: TextFormField(
               decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: '...اكتب رسالة',
+                  hintText: ' ...اكتب رسالة ',
                   hintTextDirection: TextDirection.rtl,
                   hintStyle: TextStyle(
                       fontSize: AppFontSize.hintFormField,

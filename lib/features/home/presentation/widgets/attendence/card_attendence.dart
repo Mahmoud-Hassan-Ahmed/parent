@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/dialog/delete.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
 class CardAttendenceWidget extends StatelessWidget {
-  const CardAttendenceWidget({super.key});
+  const CardAttendenceWidget({super.key, required this.index});
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +30,25 @@ class CardAttendenceWidget extends StatelessWidget {
                     IconButton(
                         onPressed: () {
                           deleteDialog(
-                                  context,
-                                  'حذف طلب الغياب',
-                                  'هل انت متأكد انك تريد حذف الطلب',
-                                  'نعم',
-                                  'لا',
-                                  () {},
-                                  () {})
-                              .show();
+                              context,
+                              'حذف طلب الغياب',
+                              'هل انت متأكد انك تريد حذف الطلب',
+                              'نعم',
+                              'لا', () {
+                            Navigator.pop(context);
+                          }, () {
+                            Navigator.pop(context);
+                          }).show();
                         },
-                        icon: const Icon(Icons.delete)),
+                        icon: SvgPicture.asset('assets/icons/delete.svg')),
                     const Text(''),
                     ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
-                          backgroundColor: AppColors.orange,
+                          backgroundColor: index == 0
+                              ? AppColors.orange
+                              : const Color(0xFF5B5C5B),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
                               15,
@@ -51,7 +56,7 @@ class CardAttendenceWidget extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "طلب غياب",
+                          "مد الاجازة",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: 'Cairo',
@@ -103,7 +108,7 @@ class CardAttendenceWidget extends StatelessWidget {
                             width: 10,
                           ),
                           Text(
-                            'الي',
+                            'حتي',
                             style: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: AppFontSize.hintText,
@@ -121,7 +126,13 @@ class CardAttendenceWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                Image.asset('assets/images/note.png')
+                Image.asset(
+                  index == 0
+                      ? 'assets/images/note.png'
+                      : 'assets/images/note_dark.png',
+                  width: 80,
+                  height: 80,
+                )
               ],
             ),
           )),

@@ -10,7 +10,7 @@ class MessagesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 10, left: 20, right: 5),
       physics: const NeverScrollableScrollPhysics(),
       children: [
         ListTile(

@@ -16,8 +16,8 @@ class CarousalTrackingWidget extends StatelessWidget {
         CarouselSlider.builder(
           options: CarouselOptions(
             height: double.infinity,
-            aspectRatio: 1,
-            viewportFraction: .7,
+            aspectRatio: 3,
+            viewportFraction: .5,
             autoPlay: true,
             enlargeCenterPage: true,
           ),
@@ -27,6 +27,8 @@ class CarousalTrackingWidget extends StatelessWidget {
                 AppUtils.pushTo(context, const TrackingPage());
               },
               child: Container(
+                height: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width / 2,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(30)),
                 alignment: Alignment.center,
@@ -37,7 +39,11 @@ class CarousalTrackingWidget extends StatelessWidget {
                       width: double.infinity,
                       padding:
                           const EdgeInsets.only(right: 10, top: 5, bottom: 5),
-                      color: Colors.green,
+                      color: index == 0
+                          ? const Color(0xFF749C4A)
+                          : index == 1
+                              ? Colors.yellow
+                              : const Color(0xFF7CBFF2),
                       child: Text(
                         'اسم الطالب',
                         textAlign: TextAlign.right,
@@ -53,8 +59,8 @@ class CarousalTrackingWidget extends StatelessWidget {
                           width: double.infinity,
                           color: AppColors.bgSendMessage,
                           child: Image.asset(
-                            'assets/images/map.png',
-                            fit: BoxFit.fill,
+                            'assets/images/map2.png',
+                            fit: BoxFit.cover,
                           )),
                     )
                   ]),

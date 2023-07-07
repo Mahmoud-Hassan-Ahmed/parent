@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/widgets/appbar/with_title.dart';
 import 'package:parents/core/widgets/bottom_bar/bottom_bar.dart';
-import 'package:parents/features/home/presentation/pages/sons_page.dart';
+import 'package:parents/features/home/presentation/pages/post_trip.dart';
 import 'package:parents/features/home/presentation/widgets/sons_trips/card_sons.dart';
 
 class SonsTripsPage extends StatefulWidget {
@@ -35,46 +35,32 @@ class _SonsTripsPageState extends State<SonsTripsPage> {
           SliverFillRemaining(
             hasScrollBody: true,
             child: ListView(
+              padding: const EdgeInsets.all(10),
               children: [
                 CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
+                  AppUtils.pushTo(context, const PostTripPage());
                 }),
                 const SizedBox(
                   height: 10,
                 ),
                 CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
+                  AppUtils.pushTo(context, const PostTripPage());
                 }),
                 const SizedBox(
                   height: 10,
                 ),
                 CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
+                  AppUtils.pushTo(context, const PostTripPage());
                 }),
                 const SizedBox(
                   height: 10,
                 ),
                 CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
+                  AppUtils.pushTo(context, const PostTripPage());
                 }),
                 const SizedBox(
                   height: 10,
                 ),
-                CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
-                }),
-                const SizedBox(
-                  height: 10,
-                ),
-                CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
-                }),
-                const SizedBox(
-                  height: 10,
-                ),
-                CardSonsWidget(callBack: () {
-                  AppUtils.pushTo(context, const SonsPage());
-                }),
               ],
             ),
           )

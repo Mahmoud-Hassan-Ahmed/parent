@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -27,12 +28,17 @@ notificationgDialog(BuildContext context) => AwesomeDialog(
             CheckboxListTile(
               tileColor: Colors.white,
               value: true,
-              onChanged: (value) {},
+              onChanged: (value) {
+                AppUtils.indexNotificationsDialog = 1;
+                Navigator.pop(context);
+              },
               controlAffinity: ListTileControlAffinity.leading,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0),
               ),
-              checkColor: AppColors.orange,
+              checkColor: AppUtils.indexNotificationsDialog == 1
+                  ? AppColors.orange
+                  : Colors.white,
               activeColor: Colors.white,
               title: Text(
                 'الافتراضي',
@@ -50,13 +56,18 @@ notificationgDialog(BuildContext context) => AwesomeDialog(
             ),
             CheckboxListTile(
               value: true,
-              onChanged: (value) {},
+              onChanged: (value) {
+                AppUtils.indexNotificationsDialog = 2;
+                Navigator.pop(context);
+              },
               controlAffinity: ListTileControlAffinity.leading,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0),
               ),
               activeColor: Colors.white,
-              checkColor: Colors.white,
+              checkColor: AppUtils.indexNotificationsDialog == 2
+                  ? AppColors.orange
+                  : Colors.white,
               title: Text(
                 'صامت',
                 style: TextStyle(
@@ -73,13 +84,18 @@ notificationgDialog(BuildContext context) => AwesomeDialog(
             ),
             CheckboxListTile(
               value: true,
-              onChanged: (value) {},
+              onChanged: (value) {
+                AppUtils.indexNotificationsDialog = 3;
+                Navigator.pop(context);
+              },
               controlAffinity: ListTileControlAffinity.leading,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0),
               ),
               activeColor: Colors.white,
-              checkColor: Colors.white,
+              checkColor: AppUtils.indexNotificationsDialog == 3
+                  ? AppColors.orange
+                  : Colors.white,
               title: Text(
                 'نغمة الهاتف',
                 style: TextStyle(

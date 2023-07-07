@@ -22,7 +22,7 @@ class _SonsPageState extends State<SonsPage> {
               floating: false,
               delegate: AppBarWithTitle(
                   context: context,
-                  title: 'رحلات الأبناء',
+                  title: 'الأبناء',
                   callBack: () {
                     Navigator.pop(context);
                   })),
@@ -35,7 +35,6 @@ class _SonsPageState extends State<SonsPage> {
                     showModalBottomSheet(
                         context: context,
                         shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(25.0),
                           ),
@@ -51,16 +50,28 @@ class _SonsPageState extends State<SonsPage> {
                 CardSonsWidget(
                   callBack: () {
                     showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        builder: (context) {
-                          return const BodySheetSons();
-                        });
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16.0),
+                                topRight: Radius.circular(16.0),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: const BodySheetSons(),
+                                ),
+                              ),
+                            ));
                   },
                 ),
                 const SizedBox(
@@ -69,16 +80,28 @@ class _SonsPageState extends State<SonsPage> {
                 CardSonsWidget(
                   callBack: () {
                     showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        builder: (context) {
-                          return const BodySheetSons();
-                        });
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16.0),
+                                topRight: Radius.circular(16.0),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: const BodySheetSons(),
+                                ),
+                              ),
+                            ));
                   },
                 ),
                 const SizedBox(
@@ -87,16 +110,28 @@ class _SonsPageState extends State<SonsPage> {
                 CardSonsWidget(
                   callBack: () {
                     showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        builder: (context) {
-                          return const BodySheetSons();
-                        });
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16.0),
+                                topRight: Radius.circular(16.0),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: const BodySheetSons(),
+                                ),
+                              ),
+                            ));
                   },
                 ),
                 const SizedBox(
@@ -105,16 +140,28 @@ class _SonsPageState extends State<SonsPage> {
                 CardSonsWidget(
                   callBack: () {
                     showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        builder: (context) {
-                          return const BodySheetSons();
-                        });
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16.0),
+                                topRight: Radius.circular(16.0),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: const BodySheetSons(),
+                                ),
+                              ),
+                            ));
                   },
                 ),
                 const SizedBox(
@@ -123,16 +170,28 @@ class _SonsPageState extends State<SonsPage> {
                 CardSonsWidget(
                   callBack: () {
                     showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        builder: (context) {
-                          return const BodySheetSons();
-                        });
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16.0),
+                                topRight: Radius.circular(16.0),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: const BodySheetSons(),
+                                ),
+                              ),
+                            ));
                   },
                 ),
                 const SizedBox(
@@ -141,16 +200,28 @@ class _SonsPageState extends State<SonsPage> {
                 CardSonsWidget(
                   callBack: () {
                     showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        builder: (context) {
-                          return const BodySheetSons();
-                        });
+                        backgroundColor: Colors.white,
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) => ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16.0),
+                                topRight: Radius.circular(16.0),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: const BodySheetSons(),
+                                ),
+                              ),
+                            ));
                   },
                 ),
               ],

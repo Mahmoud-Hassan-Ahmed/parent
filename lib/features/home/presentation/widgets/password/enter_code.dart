@@ -33,7 +33,16 @@ class CodeListWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(onPressed: () {}, child: const Text('تعديل')),
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'تعديل',
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: AppFontSize.hintText,
+                          color: AppColors.smallTextColor,
+                          fontWeight: FontWeight.bold),
+                    )),
                 Text(
                   '+97647347674',
                   style: TextStyle(

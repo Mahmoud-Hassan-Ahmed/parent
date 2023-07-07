@@ -1,6 +1,6 @@
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
@@ -54,7 +54,18 @@ class FormLogIn extends StatelessWidget {
                             labelStyle: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: AppFontSize.hintFormField),
-                            prefixIcon: const Icon(FontAwesomeIcons.user),
+                            prefixIcon: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SvgPicture.asset(
+                                  'assets/icons/username.svg',
+                                ),
+                              ],
+                            ),
                             border: InputBorder.none,
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 16.0, horizontal: 12.0),
@@ -67,7 +78,7 @@ class FormLogIn extends StatelessWidget {
                           },
                         ),
                       ),
-                      const SizedBox(height: 16.0),
+                      const SizedBox(height: 20.0),
                       Card(
                         elevation: 10,
                         shape: RoundedRectangleBorder(
@@ -81,15 +92,29 @@ class FormLogIn extends StatelessWidget {
                             labelStyle: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: AppFontSize.hintFormField),
-                            prefixIcon: const Icon(Icons.key),
+                            prefixIcon: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 12),
+                                  child: SvgPicture.asset(
+                                    'assets/icons/password.svg',
+                                  ),
+                                ),
+                              ],
+                            ),
                             suffixIcon: GestureDetector(
                               onTap: () {
                                 LoginBloc.get(context).add(
                                     ToggleHidePasswordEvent(passwordVisible));
                               },
-                              child: Icon(passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
+                              child: Icon(
+                                passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                size: 18,
+                              ),
                             ),
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 16.0, horizontal: 12.0),
@@ -117,7 +142,7 @@ class FormLogIn extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 24.0),
+                      const SizedBox(height: 15.0),
                       FullWidthBtn(
                         label: 'الدخول',
                         callBack: () {

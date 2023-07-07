@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
@@ -21,6 +22,7 @@ class FormProfileWidget extends StatelessWidget {
     final TextEditingController cityController = TextEditingController();
     final TextEditingController addressController = TextEditingController();
     return ListView(
+      padding: const EdgeInsets.only(top: 5),
       children: [
         Stack(
           children: [
@@ -39,10 +41,8 @@ class FormProfileWidget extends StatelessWidget {
                         alignment: Alignment.bottomRight,
                         child: IconButton(
                             onPressed: () {},
-                            icon: const Icon(
-                              Icons.add_a_photo,
-                              color: AppColors.smallTextColor,
-                            )),
+                            icon:
+                                SvgPicture.asset('assets/icons/add_image.svg')),
                       )
                   ],
                 ),
@@ -57,10 +57,7 @@ class FormProfileWidget extends StatelessWidget {
                       onPressed: () {
                         AppUtils.pushTo(context, const EditProfile());
                       },
-                      icon: const Icon(
-                        Icons.edit,
-                        color: Colors.red,
-                      ),
+                      icon: SvgPicture.asset('assets/icons/edit.svg'),
                       label: const Text(
                         'تعديل',
                         style: TextStyle(color: Colors.red),
@@ -70,7 +67,7 @@ class FormProfileWidget extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -82,11 +79,16 @@ class FormProfileWidget extends StatelessWidget {
                     fontSize: AppFontSize.smallText + 1,
                     color: AppColors.smallText),
               ),
-              TextFormField(
-                enabled: enable,
-                controller: usernameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+              Container(
+                color: Colors.white,
+                height: 50,
+                child: TextFormField(
+                  enabled: enable,
+                  controller: usernameController,
+                  decoration: const InputDecoration(
+                    hintText: 'اسم المستخدم ',
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -101,12 +103,13 @@ class FormProfileWidget extends StatelessWidget {
                     color: AppColors.smallText),
               ),
               Container(
-                padding: const EdgeInsets.all(7),
+                padding: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.grey[400]!,
                     width: 1.0,
                   ),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 child: InternationalPhoneNumberInput(
@@ -150,11 +153,14 @@ class FormProfileWidget extends StatelessWidget {
                     fontSize: AppFontSize.smallText + 1,
                     color: AppColors.smallText),
               ),
-              TextFormField(
-                enabled: enable,
-                controller: fullNameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+              Container(
+                height: 50,
+                color: Colors.white,
+                child: TextFormField(
+                  enabled: enable,
+                  controller: fullNameController,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), hintText: 'الاسم الكامل'),
                 ),
               ),
               const SizedBox(
@@ -168,12 +174,16 @@ class FormProfileWidget extends StatelessWidget {
                     fontSize: AppFontSize.smallText + 1,
                     color: AppColors.smallText),
               ),
-              TextFormField(
-                enabled: enable,
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+              Container(
+                height: 50,
+                color: Colors.white,
+                child: TextFormField(
+                  enabled: enable,
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'البريد الالكتروني'),
                 ),
               ),
               const SizedBox(
@@ -187,10 +197,13 @@ class FormProfileWidget extends StatelessWidget {
                     fontSize: AppFontSize.smallText + 1,
                     color: AppColors.smallText),
               ),
-              TextFormField(
-                controller: cityController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+              Container(
+                height: 50,
+                color: Colors.white,
+                child: TextFormField(
+                  controller: cityController,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), hintText: 'تحديد المدينة'),
                 ),
               ),
               const SizedBox(
@@ -204,11 +217,15 @@ class FormProfileWidget extends StatelessWidget {
                     fontSize: AppFontSize.smallText + 1,
                     color: AppColors.smallText),
               ),
-              TextFormField(
-                enabled: enable,
-                controller: addressController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+              Container(
+                height: 50,
+                color: Colors.white,
+                child: TextFormField(
+                  enabled: enable,
+                  controller: addressController,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'العنوان بالتفصيل'),
                 ),
               ),
             ],
@@ -220,8 +237,8 @@ class FormProfileWidget extends StatelessWidget {
           indent: 20,
           endIndent: 20,
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: enable ? 80 : 20,
         ),
         if (!enable)
           Padding(
@@ -249,10 +266,7 @@ class FormProfileWidget extends StatelessWidget {
                           color: AppColors.smallText),
                     ),
                   )),
-                  const Icon(
-                    Icons.settings_outlined,
-                    color: AppColors.smallText,
-                  ),
+                  SvgPicture.asset('assets/icons/settingsline.svg')
                 ],
               ),
             ),

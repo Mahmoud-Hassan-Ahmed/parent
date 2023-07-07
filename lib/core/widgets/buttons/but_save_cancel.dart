@@ -1,5 +1,5 @@
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -43,10 +43,11 @@ class ButtonSaveCancelWidget extends StatelessWidget {
           width: 30,
         ),
         TextButton.icon(
-          icon: const Icon(FontAwesomeIcons.windowClose),
+          icon: SvgPicture.asset('assets/icons/Fail.svg'),
           label: Text(
             'إلغاء',
             style: TextStyle(
+              color: AppColors.smallTextColor,
               fontSize: AppFontSize.hintText,
               fontWeight: FontWeight.bold,
             ),

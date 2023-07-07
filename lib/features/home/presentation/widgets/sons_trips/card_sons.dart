@@ -4,8 +4,9 @@ import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
 class CardSonsWidget extends StatelessWidget {
-  const CardSonsWidget({super.key, this.callBack});
+  const CardSonsWidget({super.key, this.callBack, this.border = false});
   final Function? callBack;
+  final bool border;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,8 @@ class CardSonsWidget extends StatelessWidget {
         child: Card(
             elevation: 10,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+                borderRadius: BorderRadius.circular(10),
+                side: border ? const BorderSide() : BorderSide.none),
             child: Row(
               children: [
                 Expanded(

@@ -1,12 +1,12 @@
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/helper/AppUtils.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 import 'package:parents/features/home/presentation/pages/home_page.dart';
 import 'package:parents/features/home/presentation/pages/massage_page.dart';
 import 'package:parents/features/home/presentation/pages/more_page.dart';
-import 'package:parents/features/home/presentation/pages/post_trip.dart';
+import 'package:parents/features/home/presentation/pages/sons_trip.dart';
 import 'package:parents/features/home/presentation/pages/tracking_sons_page.dart';
 
 class BottomBarWidget extends StatelessWidget {
@@ -22,144 +22,159 @@ class BottomBarWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: () {
-                AppUtils.pushTo(context, const MorePage());
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    FontAwesomeIcons.list,
-                    color:
-                        indexActive == 4 ? Colors.blueAccent : AppColors.hint,
-                    size: indexActive == 4 ? 35 : null,
-                  ),
-                  Text(
-                    'المزيد',
-                    style: TextStyle(
-                        fontSize: AppFontSize.smallText,
-                        color: indexActive == 4
-                            ? Colors.blueAccent
-                            : AppColors.hint,
-                        fontFamily: 'Cairo'),
-                  )
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                AppUtils.pushTo(context, const MessagesPage());
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    FontAwesomeIcons.comments,
-                    color:
-                        indexActive == 1 ? Colors.blueAccent : AppColors.hint,
-                    size: indexActive == 1 ? 35 : null,
-                  ),
-                  Text(
-                    'التواصل',
-                    style: TextStyle(
-                        fontSize: AppFontSize.smallText,
-                        color: indexActive == 1
-                            ? Colors.blueAccent
-                            : AppColors.hint,
-                        fontFamily: 'Cairo'),
-                  )
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                AppUtils.pushTo(context, const TrackingSonsPage());
-              },
-              child: Container(
-                height: MediaQuery.of(context).size.height / 10,
-                width: MediaQuery.of(context).size.height / 10,
-                decoration: const BoxDecoration(
-                  color: AppColors.orange,
-                  shape: BoxShape.circle,
-                ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  if (indexActive != 4) {
+                    AppUtils.pushTo(context, const MorePage());
+                  }
+                },
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // SvgPicture.asset('assets/icons/menu.svg'),
-                    const Icon(
-                      FontAwesomeIcons.houseDamage,
-                      color: Colors.white,
+                    SvgPicture.asset(
+                      'assets/icons/menuleft.svg',
+                      color: indexActive == 4 ? AppColors.smallTextColor : null,
                     ),
-                    Text('التتبع',
-                        style: TextStyle(
-                            fontSize: AppFontSize.smallText,
-                            color: Colors.white,
-                            fontFamily: 'Cairo'))
+                    Text(
+                      'المزيد',
+                      style: TextStyle(
+                          fontSize: AppFontSize.smallText,
+                          color: indexActive == 4
+                              ? AppColors.smallTextColor
+                              : AppColors.hint,
+                          fontFamily: 'Cairo'),
+                    )
                   ],
                 ),
               ),
-            ),
-            GestureDetector(
-              onTap: () {
-                AppUtils.pushTo(context, const PostTripPage());
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    FontAwesomeIcons.clock,
-                    color:
-                        indexActive == 3 ? Colors.blueAccent : AppColors.hint,
-                    size: indexActive == 3 ? 35 : null,
-                  ),
-                  Text(
-                    'رحلات سابقة',
-                    style: TextStyle(
-                        fontSize: AppFontSize.smallText,
-                        color: indexActive == 3
-                            ? Colors.blueAccent
-                            : AppColors.hint,
-                        fontFamily: 'Cairo'),
-                  )
-                ],
+              GestureDetector(
+                onTap: () {
+                  if (indexActive != 1) {
+                    AppUtils.pushTo(context, const MessagesPage());
+                  }
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/messages.svg',
+                      color: indexActive == 1 ? AppColors.smallTextColor : null,
+                    ),
+                    Text(
+                      'التواصل',
+                      style: TextStyle(
+                          fontSize: AppFontSize.smallText,
+                          color: indexActive == 1
+                              ? AppColors.smallTextColor
+                              : AppColors.hint,
+                          fontFamily: 'Cairo'),
+                    )
+                  ],
+                ),
               ),
-            ),
-            GestureDetector(
-              onTap: () {
-                AppUtils.pushTo(context, const HomePage());
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.home,
-                    color:
-                        indexActive == 0 ? Colors.blueAccent : AppColors.hint,
-                    size: indexActive == 0 ? 35 : null,
+              GestureDetector(
+                onTap: () {
+                  if (indexActive != 2) {
+                    AppUtils.pushTo(context, const TrackingSonsPage());
+                  }
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 10,
+                  width: MediaQuery.of(context).size.height / 10,
+                  decoration: const BoxDecoration(
+                    color: AppColors.orange,
+                    shape: BoxShape.circle,
                   ),
-                  Text(
-                    'الرئيسية',
-                    style: TextStyle(
-                        fontSize: AppFontSize.smallText,
-                        color: indexActive == 0
-                            ? Colors.blueAccent
-                            : AppColors.hint,
-                        fontFamily: 'Cairo'),
-                  )
-                ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Image.asset(
+                            'assets/images/logo-icon.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text('التتبع',
+                              style: TextStyle(
+                                  fontSize: AppFontSize.smallText + 2,
+                                  color: Colors.white,
+                                  fontFamily: 'Cairo')),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ),
-            )
-          ],
+              GestureDetector(
+                onTap: () {
+                  if (indexActive != 3) {
+                    AppUtils.pushTo(context, const SonsTripsPage());
+                  }
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/timerestore.svg',
+                      color: indexActive == 3 ? AppColors.smallTextColor : null,
+                    ),
+                    Text(
+                      'رحلات سابقة',
+                      style: TextStyle(
+                          fontSize: AppFontSize.smallText,
+                          color: indexActive == 3
+                              ? AppColors.smallTextColor
+                              : AppColors.hint,
+                          fontFamily: 'Cairo'),
+                    )
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  if (indexActive != 0) {
+                    AppUtils.pushToAnReplace(context, const HomePage());
+                  }
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: indexActive == 0
+                          ? AppColors.smallTextColor
+                          : AppColors.bgSendMessage,
+                    ),
+                    Text(
+                      'الرئيسية',
+                      style: TextStyle(
+                          fontSize: AppFontSize.smallText,
+                          color: indexActive == 0
+                              ? AppColors.smallTextColor
+                              : AppColors.hint,
+                          fontFamily: 'Cairo'),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

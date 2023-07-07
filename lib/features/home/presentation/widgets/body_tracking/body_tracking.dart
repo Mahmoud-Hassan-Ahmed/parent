@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:parents/core/theme/colors.dart';
 import 'package:parents/core/theme/font_size.dart';
 
@@ -13,9 +14,24 @@ class BodyTrackingWidget extends StatelessWidget {
             child: Container(
           width: double.infinity,
           color: AppColors.bgSendMessage,
-          child: Image.asset(
-            'assets/images/map.png',
-            fit: BoxFit.cover,
+          child: Stack(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+                child: Image.asset(
+                  'assets/images/map.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: SvgPicture.asset('assets/icons/mapicon.svg'),
+                ),
+              )
+            ],
           ),
         )),
         Card(
